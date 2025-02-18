@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidCalc - Fun Math for Kids</title>
+    <link id="theme-link" rel="stylesheet" href="theme1.css"> <!-- Default theme -->
+</head>
+<body>
+
+    <!-- Theme Selector Links -->
+    <div class="theme-selector">
+        <a href="#" onclick="changeTheme('theme1.css')">Theme 1</a>
+        <a href="#" onclick="changeTheme('theme2.css')">Theme 2</a>
+        <a href="#" onclick="changeTheme('theme3.css')">Theme 3</a>
+    </div>
+
+    <!-- KidCalc Interface -->
+    <section class="calculator-section">
+        <h2>KidCalc - Play & Learn</h2>
+
+        <div class="container">
+            <section class="calculator-section">
+                <h2>KidCalc - Play & Learn</h2>
+
+                <div id="expression-box"></div>
+
+                <div class="number-buttons">
+                    <button onclick="appendToExpression('0')">0</button>
+                    <button onclick="appendToExpression('1')">1</button>
+                    <button onclick="appendToExpression('2')">2</button>
+                    <button onclick="appendToExpression('3')">3</button>
+                    <button onclick="appendToExpression('4')">4</button>
+                    <button onclick="appendToExpression('5')">5</button>
+                    <button onclick="appendToExpression('6')">6</button>
+                    <button onclick="appendToExpression('7')">7</button>
+                    <button onclick="appendToExpression('8')">8</button>
+                    <button onclick="appendToExpression('9')">9</button>
+                </div>
+
+                <div class="operator-buttons">
+                    <button onclick="appendToExpression('+')">PLUS +</button>
+                    <button onclick="appendToExpression('-')">MINUS -</button>
+                    <button onclick="appendToExpression('>')">GREATER THAN ></button>
+                    <button onclick="appendToExpression('<')">LESS THAN <</button>
+                    <button onclick="appendToExpression('=')">EQUALS =</button>
+                </div>
+
+                <label for="answer">Your Answer:</label>
+                <input type="text" id="answer" placeholder="Enter your answer" />
+
+                <button onclick="submitAnswer()">Submit</button>
+                <button onclick="clearExpression()">Delete</button> <!-- Added Delete button -->
+
+                <p id="result"></p> <!-- Area to show the result -->
+            </section>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 My Blog. All rights reserved.
+    </footer>
+
+    <script>
+        function appendToExpression(value) {
+            document.getElementById('expression-box').textContent += value;
+        }
+
+        function clearExpression() {
+            document.getElementById('expression-box').textContent = ''; // Clear the expression box
+            document.getElementById('answer').value = ''; // Clear the answer input
+            document.getElementById('result').textContent = ''; // Clear the result message
+        }
+
+        function submitAnswer() {
+            const expression = document.getElementById('expression-box').textContent;
+            const answer = document.getElementById('answer').value;
+            // Evaluate the expression
+            const correctAnswer = eval(expression); // Use eval to calculate the answer
+            if (parseFloat(answer) === correctAnswer) {
+                document.getElementById('result').textContent = "Great job!";
+            } else {
+                document.getElementById('result').textContent = "Try again.";
+            }
+        }
+
+        function changeTheme(theme) {
+            document.getElementById('theme-link').setAttribute('href', theme);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log in</title>
+    <link rel="stylesheet" href="log in .css">
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form submission
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username && password) {
+                alert('Your information has been saved!');
+            } else {
+                alert('Please fill out both fields.');
+            }
+        }
+    </script>        
+</head>
+<body>
+    <header>
+        <h1>Welcome to KidCalc - Making Math Fun for Kids!</h1>
+    </header>
+    <div class="container">
+        <!-- Information Bar -->
+        <section class="info-bar">
+            <p>Learn math in a fun and interactive way with KidCalc! Suitable for kids of all ages.</p>
+            <img src="https://assets.onecompiler.app/42nvu3gnb/439c6xfbg/images.jpeg" alt="Math Fun">
+        </section>
+
+        <!-- Login Form Section -->
+        <section class="login-section">
+            <h2>Log in to Your Account</h2>
+            <form action="#" method="POST" onsubmit="handleLogin(event)">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <img id="img" src="https://assets.onecompiler.app/42nvu3gnb/439c6xfbg/login-icon-vector.jpg" alt="Login Image">
+        </section>
+    </div>
+</body>
+</html>
